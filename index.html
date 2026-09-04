@@ -3,160 +3,58 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SDN Larangan 11 Kota Tangerang</title>
-  <meta name="description" content="Website informasi SDN Larangan 11 Kota Tangerang. Profil, rombel, akademik, ekstrakurikuler, berita, prestasi, galeri, pengumuman, dokumen dan SPMB.">
+  <meta name="description" content="Website informasi SDN Larangan 11 Kota Tangerang">
+  <title>SDN Larangan 11 | Kota Tangerang</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<header class="topbar"><div class="container topbar-inner"><span>Portal Informasi SDN Larangan 11</span><span id="topNpsn">NPSN 20607216</span></div></header>
 <header class="site-header">
   <div class="container nav">
-    <a class="brand" href="./">
-      <div class="brand-mark">L11</div>
-      <div><strong id="brandName">SDN Larangan 11</strong><span id="brandCity">Kota Tangerang</span></div>
+    <a class="brand" href="#home">
+      <img id="brandLogo" class="brand-logo" src="assets/logo-sekolah.jpeg" alt="Logo SDN Larangan 11">
+      <div><strong id="brandName">SDN LARANGAN 11</strong><span id="brandCity">Kota Tangerang</span></div>
     </a>
-    <button class="nav-toggle" aria-label="Buka menu">☰</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
     <nav id="mainNav">
-      <a href="#profil">Profil</a>
-      <a href="#akademik">Akademik</a>
-      <a href="#rombel">Rombel</a>
-      <a href="#eskul">Ekstrakurikuler</a>
-      <a href="#berita">Berita</a>
-      <a href="#prestasi">Prestasi</a>
-      <a href="#galeri">Galeri</a>
-      <a href="#dokumen">Dokumen</a>
-      <a href="#spmb">SPMB</a>
-      <a class="nav-admin" href="admin/">Admin</a>
+      <a href="#profil">Profil</a><a href="#akademik">Akademik</a><a href="#rombel">Rombel</a><a href="#eskul">Eskul</a><a href="#berita">Berita</a><a href="#prestasi">Prestasi</a><a href="#galeri">Galeri</a><a href="#kontak">Kontak</a><a class="nav-admin" href="admin/">Admin</a>
     </nav>
   </div>
 </header>
 
-<main>
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow">Website Informasi Sekolah</span>
-      <h1>Selamat Datang di<br><span id="heroSchool">SDN Larangan 11</span></h1>
-      <p id="heroSubtitle">Informasi sekolah dikelola dan diverifikasi melalui Admin.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#profil">Kenal Sekolah</a>
-        <a class="btn ghost" href="#eskul">Lihat Ekstrakurikuler</a>
-      </div>
-    </div>
-    <div class="hero-card">
-      <div class="hero-icon">🏫</div>
-      <h3 id="heroCardName">SD Negeri Larangan 11</h3>
-      <p>NPSN <strong id="heroNpsn">20607216</strong></p>
-      <p id="heroAddress">Jl. H. Majuk No. 180, Larangan Utara, Kota Tangerang</p>
-    </div>
-  </div>
-</section>
+<main id="home">
+<section class="hero"><div class="container"><div class="hero-card">
+  <div class="hero-backdrop"></div><div class="hero-overlay"></div>
+  <div class="hero-copy"><span class="badge">Sekolah Dasar Negeri · Larangan Utara</span><h1 id="heroSchool">SDN Larangan 11</h1><p id="heroSubtitle">Informasi sekolah dikelola dan diverifikasi melalui Admin.</p><div class="actions"><a class="btn gold" href="#profil">Kenali Sekolah</a><a class="btn glass" href="#berita">Lihat Informasi</a></div></div>
+  <img id="heroLogo" class="hero-logo" src="assets/logo-sekolah.jpeg" alt="Logo sekolah">
+</div></div></section>
 
-<section class="stats">
-  <div class="container stat-grid">
-    <div><strong id="statStudents">—</strong><span>Peserta Didik</span></div>
-    <div><strong id="statRombel">—</strong><span>Rombel</span></div>
-    <div><strong id="statEskul">—</strong><span>Ekstrakurikuler</span></div>
-    <div><strong id="statAccreditation">—</strong><span>Akreditasi</span></div>
-  </div>
-  <div class="container footnote">Data yang tampil merupakan data yang sudah disimpan/ditetapkan admin. Data internet tidak menimpa data sekolah secara otomatis.</div>
-</section>
+<section class="facts"><div class="container facts-grid"><div><strong id="statStudents">—</strong><span>Peserta Didik</span></div><div><strong id="statRombel">—</strong><span>Rombel</span></div><div><strong id="statEskul">—</strong><span>Ekstrakurikuler</span></div><div><strong id="statAccreditation">—</strong><span>Akreditasi</span></div></div><div class="container facts-note">Data publik adalah data yang telah ditetapkan admin. Kandidat dari internet tidak menimpa data sekolah otomatis.</div></section>
 
-<section id="profil" class="section">
-  <div class="container two-col">
-    <div>
-      <span class="eyebrow">Profil Sekolah</span>
-      <h2 id="profileTitle">Rumah Belajar yang Aman, Aktif, dan Berkarakter</h2>
-      <p id="profileDescription">Memuat profil sekolah…</p>
-      <div class="info-list" id="profileInfo"></div>
-    </div>
-    <div class="vision-card">
-      <span class="eyebrow">Visi</span>
-      <p id="visionText">Memuat visi sekolah…</p>
-      <div id="missionText" class="mission-list"></div>
-    </div>
-  </div>
-</section>
+<section class="section" id="profil"><div class="container split"><div class="profile-media"><img id="profileLogo" src="assets/logo-sekolah.jpeg" alt="Logo SDN Larangan 11"><span>SDN Larangan 11 · Kota Tangerang</span></div><div><span class="eyebrow">Profil Sekolah</span><h2 id="profileTitle">Rumah Belajar yang Aman, Aktif, dan Berkarakter</h2><p id="profileDescription"></p><div class="profile-list" id="profileInfo"></div></div></div></section>
 
-<section id="akademik" class="section alt">
-  <div class="container">
-    <span class="eyebrow">Akademik</span>
-    <h2>Informasi Akademik</h2>
-    <div class="cards">
-      <article class="card"><div class="card-icon">📚</div><h3>Kurikulum</h3><p>Program pembelajaran dan kegiatan akademik sekolah.</p></article>
-      <article class="card"><div class="card-icon">🗓️</div><h3>Kalender Pendidikan</h3><p>Agenda penting, hari efektif, libur dan kegiatan sekolah.</p></article>
-      <article class="card"><div class="card-icon">⏰</div><h3>Jadwal Sekolah</h3><p>Jadwal yang diperbarui dari Admin.</p></article>
-      <article class="card"><div class="card-icon">📄</div><h3>Dokumen</h3><p>Formulir, panduan dan dokumen publik.</p></article>
-    </div>
-    <div id="scheduleList" class="schedule-grid"></div>
-  </div>
-</section>
+<section class="section vision"><div class="container vision-grid"><div><span class="eyebrow light">Visi</span><h2 id="visionText"></h2></div><div class="vision-card"><span class="eyebrow">Misi</span><div id="missionText" class="mission-list"></div></div></div></section>
 
-<section id="rombel" class="section">
-  <div class="container">
-    <div class="section-head"><div><span class="eyebrow">Rombongan Belajar</span><h2>Data Rombel</h2></div><span class="badge">Dikelola Admin</span></div>
-    <div id="rombelList" class="table-wrap"><p class="muted">Memuat data rombel…</p></div>
-  </div>
-</section>
+<section id="akademik" class="section soft"><div class="container"><div class="section-head"><span class="eyebrow">Akademik</span><h2>Informasi akademik dan jadwal sekolah.</h2></div><div class="feature-grid"><article><b>📚 Kurikulum</b><p>Program pembelajaran sekolah.</p></article><article><b>🗓️ Kalender</b><p>Agenda dan hari efektif.</p></article><article><b>📄 Dokumen</b><p>Formulir dan referensi publik.</p></article></div><div id="scheduleList" class="schedule-grid"></div></div></section>
 
-<section id="eskul" class="section alt">
-  <div class="container">
-    <div class="section-head"><div><span class="eyebrow">Kesiswaan</span><h2>Ekstrakurikuler</h2></div><span class="badge">Aktif</span></div>
-    <div id="eskulList" class="cards"><p class="muted">Memuat ekstrakurikuler…</p></div>
-    <div class="subsection-head"><span class="eyebrow">Kegiatan Eskul</span><h3>Update Kegiatan Terbaru</h3></div>
-    <div id="eskulActivityList" class="news-grid"></div>
-  </div>
-</section>
+<section id="program" class="section"><div class="container"><div class="section-head"><span class="eyebrow">Program Sekolah</span><h2>Program dan layanan sekolah.</h2></div><div id="programList" class="cards three"></div></div></section>
 
-<section id="berita" class="section">
-  <div class="container">
-    <span class="eyebrow">Informasi</span><h2>Berita & Pengumuman</h2>
-    <div id="newsList" class="news-grid"></div>
-    <div class="subsection-head"><span class="eyebrow">Pengumuman</span><h3>Informasi Penting</h3></div>
-    <div id="announcementList" class="news-grid"></div>
-  </div>
-</section>
+<section id="rombel" class="section"><div class="container"><div class="section-head row-head"><div><span class="eyebrow">Rombongan Belajar</span><h2>Data rombel sekolah.</h2></div><span class="status-chip">Dikelola Admin</span></div><div id="rombelList" class="table-wrap"><p class="muted">Memuat data…</p></div></div></section>
 
-<section id="prestasi" class="section alt">
-  <div class="container">
-    <span class="eyebrow">Prestasi</span><h2>Prestasi Sekolah & Murid</h2>
-    <div id="achievementList" class="cards"></div>
-  </div>
-</section>
+<section id="eskul" class="section soft"><div class="container"><div class="section-head"><span class="eyebrow">Ekstrakurikuler</span><h2>Ruang berkembang di luar kelas.</h2></div><div id="eskulList" class="cards three"></div><div class="subsection-head"><span class="eyebrow">Kegiatan Eskul</span><h3>Update kegiatan terbaru</h3></div><div id="eskulActivityList" class="cards three"></div></div></section>
 
-<section id="galeri" class="section">
-  <div class="container">
-    <span class="eyebrow">Dokumentasi</span><h2>Galeri Kegiatan</h2>
-    <div id="galleryList" class="gallery-grid"></div>
-  </div>
-</section>
+<section id="berita" class="section"><div class="container"><div class="section-head"><span class="eyebrow">Kabar Sekolah</span><h2>Berita terbaru.</h2></div><div id="newsList" class="cards three"></div></div></section>
+<section class="section dark"><div class="container"><span class="eyebrow light">Pengumuman</span><h2>Informasi penting untuk orang tua dan murid.</h2><div id="announcementList" class="announcement-list"></div></div></section>
 
-<section id="dokumen" class="section alt">
-  <div class="container">
-    <span class="eyebrow">Dokumen Publik</span><h2>Unduhan & Referensi</h2>
-    <div id="documentList" class="document-grid"></div>
-  </div>
-</section>
+<section id="prestasi" class="section"><div class="container"><div class="section-head"><span class="eyebrow">Prestasi</span><h2>Apresiasi untuk setiap pencapaian.</h2></div><div id="achievementList" class="cards three"></div></div></section>
+<section id="galeri" class="section soft"><div class="container"><div class="section-head"><span class="eyebrow">Galeri</span><h2>Potret kegiatan sekolah.</h2></div><div id="galleryList" class="gallery"></div></div></section>
+<section id="dokumen" class="section"><div class="container"><div class="section-head"><span class="eyebrow">Dokumen Publik</span><h2>Unduhan dan referensi.</h2></div><div id="documentList" class="document-grid"></div></div></section>
 
-<section id="spmb" class="section cta">
-  <div class="container cta-inner">
-    <div><span class="eyebrow">Penerimaan Murid Baru</span><h2 id="spmbTitle">Informasi SPMB</h2><p id="spmbDescription">Jadwal, persyaratan, jalur, daya tampung dan tautan pendaftaran dapat diperbarui oleh admin.</p></div>
-    <a id="spmbLink" class="btn light" href="https://spmb.tangerangkota.go.id/" target="_blank" rel="noopener">Portal SPMB</a>
-  </div>
-</section>
+<section id="spmb" class="section spmb"><div class="container spmb-inner"><div><span class="eyebrow light">Penerimaan Murid Baru</span><h2 id="spmbTitle">Informasi SPMB</h2><p id="spmbDescription"></p></div><a id="spmbLink" class="btn light" target="_blank" rel="noopener">Portal SPMB</a></div></section>
 
-<section id="kontak" class="section">
-  <div class="container two-col">
-    <div><span class="eyebrow">Kontak</span><h2>Hubungi Sekolah</h2><div class="contact-box" id="contactBox"></div></div>
-    <a id="mapBox" class="map-placeholder" target="_blank" rel="noopener"><span>📍</span><strong>Lokasi SDN Larangan 11</strong><small>Buka peta</small></a>
-  </div>
-</section>
+<section id="kontak" class="section"><div class="container contact-grid"><div><span class="eyebrow">Kontak & Lokasi</span><h2 id="footerSchool">SDN Larangan 11</h2><div id="contactBox"></div><a id="mapBox" class="btn primary" target="_blank" rel="noopener">Buka Google Maps</a></div><div class="contact-card"><img id="contactLogo" src="assets/logo-sekolah.jpeg" alt="Logo sekolah"><strong id="copyrightSchool">SDN Larangan 11 Kota Tangerang</strong><span>Cerdas, Berbudi, Berprestasi</span></div></div></section>
 </main>
+<footer><div class="container footer-grid"><div><strong>SDN Larangan 11</strong><p>Kota Tangerang · Provinsi Banten</p></div><a href="admin/">Masuk Admin →</a></div><div class="copyright">© <span id="year"></span> SDN Larangan 11.</div></footer>
 
-<footer><div class="container footer-grid"><div><strong id="footerSchool">SDN Larangan 11</strong><p>Informasi • Inspirasi • Prestasi • Kolaborasi</p></div><div><a href="#profil">Profil</a><a href="#eskul">Ekstrakurikuler</a><a href="#berita">Berita</a><a href="admin/">Admin</a></div></div><div class="copyright">© <span id="year"></span> <span id="copyrightSchool">SDN Larangan 11 Kota Tangerang</span>.</div></footer>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/config.js"></script>
-<script src="js/supabase-client.js"></script>
-<script src="js/app.js"></script>
-</body>
-</html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/supabase-client.js"></script><script src="js/app.js"></script>
+</body></html>

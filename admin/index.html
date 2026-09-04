@@ -37,6 +37,7 @@
 <label>Misi — satu baris per poin<textarea id="schoolMission"></textarea></label><label>Subjudul Hero<textarea id="schoolHeroSubtitle"></textarea></label>
 <label>Judul SPMB<input id="schoolSpmbTitle"></label><label>URL SPMB<input id="schoolSpmbUrl"></label>
 <label>Deskripsi SPMB<textarea id="schoolSpmbDescription"></textarea></label>
+<div class="logo-manager full"><div><b>Logo Sekolah</b><p class="hint">Logo dipakai pada header, hero, profil, dan kontak website publik.</p><img id="schoolLogoPreview" src="../assets/logo-sekolah.jpeg" alt="Logo sekolah"></div><div><label>Upload Logo Baru<input id="schoolLogoFile" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml"></label><button type="button" class="secondary" id="uploadLogoBtn">Upload & Gunakan Logo</button><small>Disimpan ke Supabase Storage bucket school-media.</small></div></div>
 </div><div id="profileMsg" class="msg"></div></section>
 
 <section id="rombel" class="panel"><div class="panel-head"><div><span class="eyebrow">ROMBEL</span><h2>Rombongan Belajar</h2></div><button class="primary" data-add="rombel">+ Tambah Rombel</button></div><p class="hint">Simpan tahun ajaran, semester, jumlah siswa, komposisi L/P, wali kelas, ruang dan sumber data.</p><div id="rombelEditor"></div></section>
@@ -56,9 +57,10 @@
 <section id="sync" class="panel">
 <div class="panel-head"><div><span class="eyebrow">DATA PIPELINE</span><h2>Sinkronisasi & Staging</h2></div></div>
 <div class="sync-grid">
-<div class="sync-card"><h3>🔄 Ambil Kandidat Data</h3><p>Masukkan endpoint JSON/API. Data tidak langsung mengubah website.</p><input id="syncUrl" placeholder="https://domain.example/data.json"><button class="secondary" id="syncBtn">Ambil & Simpan ke Staging</button><div id="syncResult"></div></div>
-<div class="sync-card"><h3>🛡️ Verifikasi Admin</h3><p>Setiap kandidat disimpan bersama URL sumber dan waktu pengambilan. Admin kemudian menerima atau menolak secara manual.</p><div id="stagingList"></div></div>
-<div class="sync-card"><h3>✏️ Prioritas Data</h3><ul><li>Data manual admin adalah sumber utama.</li><li>Sinkronisasi hanya menghasilkan kandidat.</li><li>Tidak ada auto-overwrite.</li><li>Riwayat staging tetap tersimpan.</li></ul></div>
+<div class="sync-card sync-wide"><h3>🔄 Smart Sync Data Internet</h3><p>Periksa seluruh sumber yang telah didaftarkan melalui Supabase Edge Function <code>school-sync</code>. Hasil hanya masuk staging dan tidak pernah menimpa data final otomatis.</p><button class="primary" id="smartSyncBtn">Periksa Pembaruan Data Internet</button><div id="syncResult"></div></div>
+<div class="sync-card"><h3>🌐 Daftarkan Sumber</h3><input id="sourceName" placeholder="Nama sumber, mis. Kemendikdasmen"><input id="sourceUrl" placeholder="https://alamat-sumber..."><select id="sourceType"><option value="json">JSON/API</option><option value="html">HTML</option></select><input id="sourceFields" placeholder="Field: students,staff,principal"><button class="secondary" id="addSourceBtn">Simpan Sumber</button><div id="sourceList"></div></div>
+<div class="sync-card"><h3>🛡️ Verifikasi Admin</h3><p>Bandingkan nilai saat ini dan kandidat internet. Klik gunakan hanya jika data benar.</p><div id="stagingList"></div></div>
+<div class="sync-card"><h3>✏️ Aturan Sumber</h3><ul><li>Hanya sumber terdaftar dan aktif yang diperiksa.</li><li>Field yang boleh diambil dibatasi per sumber.</li><li>Data manual admin tetap sumber utama.</li><li>Accept menerapkan satu field yang dipilih; reject tidak mengubah profil.</li></ul></div>
 </div></section>
 
 <section id="settings" class="panel"><div class="panel-head"><div><span class="eyebrow">KONFIGURASI</span><h2>Pengaturan Produksi</h2></div></div><p>Frontend hanya memakai Project URL + anon/publishable key. Jangan pernah menyimpan <code>service_role</code> key di GitHub.</p></section>

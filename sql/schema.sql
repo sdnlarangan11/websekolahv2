@@ -115,3 +115,21 @@ create policy "public school media" on storage.objects for select using (bucket_
 create policy "admin upload school media" on storage.objects for insert to authenticated with check (bucket_id='school-media');
 create policy "admin update school media" on storage.objects for update to authenticated using (bucket_id='school-media') with check (bucket_id='school-media');
 create policy "admin delete school media" on storage.objects for delete to authenticated using (bucket_id='school-media');
+
+-- ===== V4 additions =====
+alter table public.school_profile add column if not exists logo_url text;
+alter table public.sync_staging add column if not exists source_name text;
+alter table public.sync_staging add column if not exists field_name text;
+alter table public.sync_staging add column if not exists current_value jsonb;
+alter table public.sync_staging add column if not exists candidate_value jsonb;
+alter table public.sync_staging add column if not exists confidence numeric(5,2);
+alter table public.sync_staging add column if not exists fetched_at timestamptz default now();
+create table if not exists public.sync_sources (
+ id uuid primary key default gen_random_uuid(), name text not null, source_url text not null,
+ source_type text not null default 'html' check(source_type in ('html','json')), enabled boolean not null default true,
+ priority integer not null default 100,
+ allowed_fields jsonb not null default '["name","npsn","status","level","accreditation","principal","students","staff","address","city"]'::jsonb,
+ parser_config jsonb not null default '{}'::jsonb, created_at timestamptz not null default now(), updated_at timestamptz not null default now()
+);
+alter table public.sync_sources enable row level security;
+create policy "admin sync sources" on public.sync_sources for all to authenticated using (true) with check (true);
