@@ -13,3 +13,9 @@ Fitur utama:
 - Tidak ada auto-overwrite dari internet.
 
 Untuk upgrade dari V3 baca `DEPLOY-V4.md` dan jalankan `sql/v4_patch.sql`.
+
+
+## V4.1 Visual Fidelity
+- UI publik diselaraskan lebih ketat dengan Professional V2/mockup: header putih, hero foto sekolah penuh, overlay navy, logo besar, statistik mengambang, kartu sambutan/visi-misi, berita dan footer navy.
+- Foto hero default memakai referensi publik SDN Larangan 11 dan dapat diganti melalui Admin > Data Sekolah.
+- Logo dan foto hero dapat diunggah ke Supabase Storage tanpa mengubah kode.

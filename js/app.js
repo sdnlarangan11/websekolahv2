@@ -1,7 +1,7 @@
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
 const dateID=d=>d?new Date(d).toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"}):"";
-const fallbackProfile={name:"SDN Larangan 11",npsn:"20607216",status:"Negeri",level:"Sekolah Dasar",accreditation:"A",logo_url:"assets/logo-sekolah.jpeg",address:"Jl. H. Majuk No. 180, Larangan Utara, Kecamatan Larangan, Kota Tangerang, Banten 15154",city:"Kota Tangerang",description:"Website ini menjadi pusat informasi digital SDN Larangan 11 untuk murid, orang tua/wali, guru, tenaga kependidikan, dan masyarakat.",vision:"Membentuk generasi yang religius, disiplin, jujur, kreatif dan berkarakter yang peduli terhadap lingkungan.",mission:[],spmb_title:"Informasi SPMB",spmb_description:"Jadwal, persyaratan, jalur, daya tampung dan tautan pendaftaran dapat diperbarui oleh admin.",spmb_url:"https://spmb.tangerangkota.go.id/"};
+const fallbackProfile={name:"SDN Larangan 11",npsn:"20607216",status:"Negeri",level:"Sekolah Dasar",accreditation:"A",hero_image_url:"https://cdn-sekolah.annibuku.com/20607216/1.jpg",logo_url:"assets/logo-sekolah.jpeg",address:"Jl. H. Majuk No. 180, Larangan Utara, Kecamatan Larangan, Kota Tangerang, Banten 15154",city:"Kota Tangerang",description:"Website ini menjadi pusat informasi digital SDN Larangan 11 untuk murid, orang tua/wali, guru, tenaga kependidikan, dan masyarakat.",vision:"Membentuk generasi yang religius, disiplin, jujur, kreatif dan berkarakter yang peduli terhadap lingkungan.",mission:[],spmb_title:"Informasi SPMB",spmb_description:"Jadwal, persyaratan, jalur, daya tampung dan tautan pendaftaran dapat diperbarui oleh admin.",spmb_url:"https://spmb.tangerangkota.go.id/"};
 
 async function q(table,select="*",filters=[]){
   if(!SDN11.configured)return [];
@@ -32,12 +32,15 @@ async function init(){
   const toggle=$("menuBtn"),nav=$("mainNav");toggle?.addEventListener("click",()=>nav.style.display=nav.style.display==="flex"?"none":"flex");
 }
 function renderProfile(p,rombel,eskul){
-  const name=p.name||"SDN Larangan 11"; const logo=p.logo_url||"assets/logo-sekolah.jpeg";
-  ["brandLogo","heroLogo","profileLogo","contactLogo"].forEach(id=>{if($(id))$(id).src=logo});
-  $("brandName").textContent=name;$("brandCity").textContent=p.city||"Kota Tangerang";$("topNpsn").textContent="NPSN "+(p.npsn||"-");$("heroSchool").textContent=name;$("heroSubtitle").textContent=p.hero_subtitle||p.vision||"";$("statStudents").textContent=p.students??"—";$("statRombel").textContent=rombel.length||"—";$("statEskul").textContent=eskul.length||"—";$("statAccreditation").textContent=p.accreditation||"—";$("profileTitle").textContent=p.profile_title||"Rumah Belajar yang Aman, Aktif, dan Berkarakter";$("profileDescription").textContent=p.description||"";$("visionText").textContent=p.vision||"";
+  const name=p.name||"SDN Larangan 11", logo=p.logo_url||"assets/logo-sekolah.jpeg";
+  ["brandLogo","heroLogo","contactLogo","footerLogo"].forEach(id=>{if($(id))$(id).src=logo});
+  if($("heroBg")) $("heroBg").style.backgroundImage=`url("${String(p.hero_image_url||"https://cdn-sekolah.annibuku.com/20607216/1.jpg").replace(/"/g,"%22")}")`;
+  $("brandName").textContent=name.toUpperCase();$("brandCity").textContent=(p.city||"Kota Tangerang").toUpperCase();$("heroSchool").textContent=name.toUpperCase();$("heroCity").textContent=p.city||"Kota Tangerang";$("heroSubtitle").textContent=p.hero_subtitle||p.vision||"";
+  $("statStudents").textContent=p.students??"—";$("statStaff").textContent=p.staff??"—";$("statRombel").textContent=rombel.length||"—";$("statAccreditation").textContent=p.accreditation||"—";
+  $("profileTitle").textContent=p.profile_title||"Rumah Belajar yang Aman, Aktif, dan Berkarakter";$("profileDescription").textContent=p.description||"";$("visionText").textContent=p.vision||"";$("principalName").textContent=p.principal||"Kepala Sekolah";
   $("missionText").innerHTML=(Array.isArray(p.mission)?p.mission:[]).map(x=>`<div>${esc(x)}</div>`).join("");
   $("profileInfo").innerHTML=[["NPSN",p.npsn],["Status",p.status],["Jenjang",p.level],["Kepala Sekolah",p.principal],["Alamat",p.address]].filter(x=>x[1]).map(([l,v])=>`<div><b>${esc(l)}</b><span>${esc(v)}</span></div>`).join("");
-  $("spmbTitle").textContent=p.spmb_title||"Informasi SPMB";$("spmbDescription").textContent=p.spmb_description||"";$("spmbLink").href=p.spmb_url||"#";$("contactBox").innerHTML=[["📍",p.address],["☎️",p.phone],["✉️",p.email],["🌐 NPSN:",p.npsn]].filter(x=>x[1]).map(([i,v])=>`<p>${i} ${esc(v)}</p>`).join("");$("mapBox").href=p.maps_url||"#";$("footerSchool").textContent=name;$("copyrightSchool").textContent=name+" "+(p.city||"");
+  $("spmbTitle").textContent=p.spmb_title||"Informasi SPMB";$("spmbDescription").textContent=p.spmb_description||"";$("spmbLink").href=p.spmb_url||"#";$("contactBox").innerHTML=[["📍",p.address],["☎️",p.phone],["✉️",p.email],["NPSN",p.npsn]].filter(x=>x[1]).map(([i,v])=>`<span class="contact-line">${esc(i)} ${esc(v)}</span>`).join("");$("mapBox").href=p.maps_url||"#";$("footerSchool").textContent=name;$("copyrightSchool").textContent=name;
 }
 function renderPrograms(items){$("programList").innerHTML=items.length?items.map(x=>`<article class="card"><div class="card-icon">📚</div><h3>${esc(x.title)}</h3><p>${esc(x.description||"")}</p></article>`).join(""):'<p class="muted">Belum ada program yang dipublikasikan.</p>'}
 

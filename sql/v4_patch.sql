@@ -2,6 +2,7 @@
 -- Safe to run after V3 schema. This patch does not delete existing data.
 
 alter table public.school_profile add column if not exists logo_url text;
+alter table public.school_profile add column if not exists hero_image_url text;
 
 alter table public.sync_staging add column if not exists source_name text;
 alter table public.sync_staging add column if not exists field_name text;
