@@ -1,4 +1,4 @@
-```javascript
+
 (() => {
   const cfg = window.SDN11_CONFIG || {};
 
@@ -27,4 +27,4 @@
     bucket: window.SDN11.bucket
   });
 })();
-```
+
