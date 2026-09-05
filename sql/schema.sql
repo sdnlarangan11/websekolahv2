@@ -133,3 +133,10 @@ create table if not exists public.sync_sources (
 );
 alter table public.sync_sources enable row level security;
 create policy "admin sync sources" on public.sync_sources for all to authenticated using (true) with check (true);
+
+-- V4.3 profile social media fields
+alter table public.school_profile add column if not exists instagram_url text;
+alter table public.school_profile add column if not exists facebook_url text;
+alter table public.school_profile add column if not exists youtube_url text;
+alter table public.school_profile add column if not exists tiktok_url text;
+alter table public.school_profile add column if not exists whatsapp_url text;
